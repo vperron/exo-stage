@@ -1,3 +1,4 @@
+//// FUNCTIONS
 // Parses a CSV content into a sorted JavaScript 2D array
 function csvToJavaScript(txt) {
     
@@ -11,23 +12,24 @@ function csvToJavaScript(txt) {
     
     for (var i = 1; i < rentals.length; i++) {
         rental = rentals[i].split(",");
-        
         // JSON-like representation of each rental
         javaTable[i - 1] = {beg: rental[0],
                             end: rental[1],
+                            dura: (new Date(rental[1]) - new Date(rental[0])),
                             type: rental[2],
                             dist: rental[3],
                             car: rental[4]};
         
     }
     
-    /*
+    
     // Sorts the rentals in ascending start time order
     return javaTable.sort(function (a,b){
         return new Date(a.beg) - new Date(b.beg);
     });
-    */
     
+    
+    /*
     // Sorts the rentals in ascending start time order
     javaTable = javaTable.sort(function (a,b){
         return new Date(a.beg) - new Date(b.beg);
@@ -36,6 +38,7 @@ function csvToJavaScript(txt) {
     for (var i in ("beg", "end")) {
         
     }
+    */
     
 }
 
@@ -53,7 +56,7 @@ function javaScriptToHTML(javaTable) {
         // For each data
         for (var j in javaTable[i]) {
             
-            var dataElts = new Array(5);
+            var dataElts = new Array(6);
             dataElts[j] = document.createElement("td");
             dataElts[j].class = j;
             dataElts[j].textContent = javaTable[i][j];
@@ -70,6 +73,7 @@ function javaScriptToHTML(javaTable) {
     
 }
 
+//// MAIN
 // Checks if the browser supports the files APIs
 if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
     // It does not

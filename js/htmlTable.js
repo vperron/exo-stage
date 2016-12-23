@@ -20,25 +20,6 @@ function csvToJavaScript(txt) {
                             type: rental[2],
                             dist: rental[3],
                             car: rental[4]};
-        
-        // Translation of variables 'beg', 'end' and 'dura' to an understandable format
-        //**************************************************************************************************************************
-        for (var j in javaTable[i - 1]) {
-            if ((j === "beg") || (j === "end")) {
-                var date = new Date(javaTable[i - 1][j]);
-                console.log(javaTable[i - 1][j]);
-                javaTable[i - 1][j] = date.getDate() + "/" +
-                                     (date.getMonth() + 1).toString() + "/" +
-                                     date.getFullYear() + ", " +
-                                     date.getHours() + ":" +
-                                     date.getMinutes() + ":" +
-                                     date.getSeconds();
-            } else if (j === "dura") {
-                
-            }
-            
-        }
-    
     }
     
     /*
@@ -48,11 +29,32 @@ function csvToJavaScript(txt) {
     });
     */
     
-    
     // Sorts the rentals in ascending start time order
     javaTable = javaTable.sort(function (a,b){
         return new Date(a.beg) - new Date(b.beg);
     });
+    
+    // Translation of variables 'beg', 'end' and 'dura' to an understandable format
+    for (var i = 0; i < javaTable.length; i++) {
+        for (var j in javaTable[i]) {
+            if ((j === "beg") || (j === "end")) {
+                var date = new Date(javaTable[i][j]);
+                javaTable[i][j] = date.getDate() + "/" +
+                                     (date.getMonth() + 1).toString() + "/" +
+                                     date.getFullYear() + ", " +
+                                     (date.getHours() + 4).toString() + ":" +
+                                     date.getMinutes() + ":" +
+                                     date.getSeconds();
+            } else if (j === "dura") {
+                // Duration in minutes
+                var val = javaTable[i][j];
+                val = Math.floor(val / (1000 * 60)).toString() + ":" +
+                      ((val / 1000) % 60).toString().match(/.+\./)[0].slice(0, -1);
+                javaTable[i][j] = val;
+            }
+
+        }
+    }
     
     return javaTable;    
     
@@ -85,21 +87,20 @@ function javaScriptToHTML(javaTable) {
     tableElt.appendChild(tableHeadElt);
     
     // For each rental
+    var rentElts = new Array(javaTable.length);
     for (var i = 0; i < javaTable.length; i++) {
         
-        var rentElts = new Array(javaTable.length);
         rentElts[i] = document.createElement("tr");
         
         // For each data
+        var dataElts = new Array(6);
         for (var j in javaTable[i]) {
             
-            var dataElts = new Array(6);
             dataElts[j] = document.createElement("td");
-            dataElts[j].class = j;
-            dataElts[j].textContent = javaTable[i].j;
+            dataElts[j].className = j;
+            dataElts[j].textContent = javaTable[i][j];
             
             rentElts[i].appendChild(dataElts[j]);
-            
         }
         
         tableElt.appendChild(rentElts[i]);
@@ -141,8 +142,6 @@ if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
                 var htmlTable = javaScriptToHTML(javaTable);
                 
                 document.body.appendChild(htmlTable);
-                
-                //TESTS
                 
             });
             // Reads the given file

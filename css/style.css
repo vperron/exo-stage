@@ -1,4 +1,36 @@
-#input
+*
 {
-    
+    font-family: Verdana, Arial;
 }
+
+nav
+{
+    font-style: italic;
+}
+
+nav a
+{
+    text-decoration: none;
+}
+
+h1
+{
+    text-align: center;
+}
+
+table
+{
+    text-align: right;
+}
+
+.beg, .end
+{
+    text-align: left;
+}
+
+#tableHead
+{
+    font-size: 1.3em;
+    text-align: center;
+}
+

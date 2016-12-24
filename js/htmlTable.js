@@ -36,6 +36,7 @@ function csvToJavaScript(txt) {
     
     // Translation of variables 'beg', 'end' and 'dura' to an understandable format
     for (var i = 0; i < javaTable.length; i++) {
+                console.log("LOL");
         for (var j in javaTable[i]) {
             if ((j === "beg") || (j === "end")) {
                 var date = new Date(javaTable[i][j]);
@@ -130,7 +131,8 @@ if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
             
             // Remove previous table
             try {
-                document.body.removeChild(document.getElementById("table"));
+                document.getElementById("section").removeChild(document.getElementById("tableText"));
+                document.getElementById("section").removeChild(document.getElementById("table"));
             } catch(e) {}
             
             // It is a CSV
@@ -141,7 +143,12 @@ if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
                 var javaTable = csvToJavaScript(reader.result);
                 var htmlTable = javaScriptToHTML(javaTable);
                 
-                document.body.appendChild(htmlTable);
+                var par = document.createElement("p");
+                par.id = "tableText";
+                par.textContent = "Données reccueillies :";
+                
+                document.getElementById("section").appendChild(par);
+                document.getElementById("section").appendChild(htmlTable);
                 
             });
             // Reads the given file

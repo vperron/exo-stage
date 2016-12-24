@@ -9,26 +9,27 @@
     
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Objectif</a></li>
-                <li><a href="bonus1.html">Bonus 1</a></li>
-            </ul>
+            <button id="homeButton" ><a href="index.html">Objectif</a></button>
+            <button id="bon1Button" onclick="bonus1.html"><a href="bonus1.html">Bonus 1</a></button>
         </nav>
     </header>
     
     <body>
-        
-        <h1>Analyse d'un fichier de données</h1>
-        
-        <div>
-            <p>Veuillez sélectionner un fichier de données (format CSV) :</p>
-            <input type="file" id="inputFile">
-        </div>
-        
-        <div>
-            <script src="../js/htmlTable.js"></script>
-        </div>
-        
+        <section id="section">
+            
+            <h1>Analyse d'un fichier de données</h1>
+
+            <div>
+                <p>Veuillez sélectionner un fichier de données (format CSV) :</p>
+                <input type="file" id="inputFile" text="Rechercher">
+                <label for="inputFile">Rechercher</label>
+            </div>
+
+            <div>
+                <script src="../js/htmlTable.js"></script>
+            </div>
+            
+        </section>
     </body>
     
     <footer>

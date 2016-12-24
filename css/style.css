@@ -22,12 +22,10 @@ nav button
     background-color: #FCAF42;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
+    margin: 2px;
     text-decoration: none;
     color : white;
     font-weight: bold;
-    /*
-    CORRECT FOR RESPONSIVE DESIGN
-    */
 }
 
 nav button:hover
@@ -59,6 +57,9 @@ input + label
     background-color: #B5B5B5;
     color: white;
     font-weight: bold;
+    /*
+        CORRECT RESPONSIVE DESIGN
+    */
 }
 
 input + label:hover

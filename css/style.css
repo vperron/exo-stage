@@ -25,6 +25,9 @@ nav button
     text-decoration: none;
     color : white;
     font-weight: bold;
+    /*
+    CORRECT FOR RESPONSIVE DESIGN
+    */
 }
 
 nav button:hover
@@ -70,10 +73,16 @@ table
     border: solid;
     border-width: 2px;
     border-color: black;
+    width: 700px;
     /*
     max-height: 70%;
     overflow: scroll;
     */
+}
+
+tr
+{
+    margin: 10px;
 }
 
 .beg, .end

@@ -38,12 +38,23 @@ function csvToJavaScript(txt) {
         for (var j in javaTable[i]) {
             if ((j === "beg") || (j === "end")) {
                 var date = new Date(javaTable[i][j]);
-                javaTable[i][j] = date.getDate() + "/" +
-                                     (date.getMonth() + 1).toString() + "/" +
-                                     date.getFullYear() + ", " +
-                                     (date.getHours() + 4).toString() + ":" +
-                                     date.getMinutes() + ":" +
-                                     date.getSeconds();
+                // Weird date detection with class 'Date'... ==> correction
+                if (date.getHours() > 19) {
+                    javaTable[i][j] = (date.getDate() + 1).toString() + "/" +
+                                      (date.getMonth() + 1).toString() + "/" +
+                                      date.getFullYear() + ", " +
+                                      (date.getHours() - 20).toString() + ":" +
+                                      date.getMinutes() + ":" +
+                                      date.getSeconds();
+                } else {
+                    javaTable[i][j] = date.getDate() + "/" +
+                                      (date.getMonth() + 1).toString() + "/" +
+                                      date.getFullYear() + ", " +
+                                      (date.getHours() + 4).toString() + ":" +
+                                      date.getMinutes() + ":" +
+                                      date.getSeconds();
+                }
+                
             } else if (j === "dura") {
                 // Duration in minutes
                 var val = javaTable[i][j];

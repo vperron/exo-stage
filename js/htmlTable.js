@@ -6,6 +6,7 @@ function csvToJavaScript(txt) {
     var rentRegExp = new RegExp("((.+),){4}(.+)\n", "g");
     
     var rentals = txt.match(rentRegExp);
+    txt = null;
     
     // Result to return
     var javaTable = new Array(rentals.length - 1);
@@ -22,21 +23,18 @@ function csvToJavaScript(txt) {
                             car: rental[4]};
     }
     
-    /*
-    // Sorts the rentals in ascending start time order
-    return javaTable.sort(function (a,b){
-        return new Date(a.beg) - new Date(b.beg);
-    });
-    */
+    rentals = null;
     
     // Sorts the rentals in ascending start time order
     javaTable = javaTable.sort(function (a,b){
         return new Date(a.beg) - new Date(b.beg);
     });
     
+    /*
+                THESE 2 LOOPS BUG WHEN THE GIVEN FILE IS TOO BIG
+    */
     // Translation of variables 'beg', 'end' and 'dura' to an understandable format
     for (var i = 0; i < javaTable.length; i++) {
-                console.log("LOL");
         for (var j in javaTable[i]) {
             if ((j === "beg") || (j === "end")) {
                 var date = new Date(javaTable[i][j]);

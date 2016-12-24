@@ -9,26 +9,29 @@
     
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Objectif</a></li>
-                <li><a href="bonus1.html">Bonus 1</a></li>
-            </ul>
+            <button id="homeButton" onclick="location.href='index.html'">Objectif</button>
+            <button id="bon1Button" onclick="location.href='bonus1.html'">Bonus 1</button>
         </nav>
     </header>
     
     <body>
-    
-        <h1>Temps moyen d'attente</h1>
-        
-        <div>
-            <p>Veuillez sélectionner un fichier de données (format CSV) :</p>
-            <input type="file" id="inputFile">
-        </div>
-        
-        <div>
+        <section id="section">
+            
+            <h1>Temps moyen d'attente</h1>
+
+            <div>
+                <p>
+                    Veuillez sélectionner un fichier de données (format CSV) :
+                    <input type="file" id="inputFile" text="Rechercher">
+                    <label for="inputFile">Rechercher</label>
+                </p>
+            </div>
+
+            <div>
             <script src="../js/meanTime.js"></script>
-        </div>
-        
+            </div>
+            
+        </section>
     </body>
     
     <footer>

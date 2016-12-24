@@ -19,24 +19,20 @@ nav
 
 nav button
 {
-    background-color: #F7BE81;
+    background-color: #FCAF42;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
+    text-decoration: none;
+    color : white;
+    font-weight: bold;
 }
 
 nav button:hover
 {
-    background-color: #ED9E4A;
+    background-color: #C9811C;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     cursor: pointer;
-}
-
-nav a
-{
-    text-decoration: none;
-    color : white;
-    font-weight: bold;
 }
 
 section
@@ -53,14 +49,18 @@ input
 input + label
 {
     border: solid;
+    border-color: black;
     border-width: 2px;
     border-radius: 7px;
     padding: 2px;
     background-color: #B5B5B5;
+    color: white;
+    font-weight: bold;
 }
 
 input + label:hover
 {
+    background-color: #808080;
     cursor: pointer;
 }
 
@@ -70,8 +70,10 @@ table
     border: solid;
     border-width: 2px;
     border-color: black;
-    max-height: 100px;
+    /*
+    max-height: 70%;
     overflow: scroll;
+    */
 }
 
 .beg, .end

@@ -9,8 +9,8 @@
     
     <header>
         <nav>
-            <button id="homeButton" ><a href="index.html">Objectif</a></button>
-            <button id="bon1Button" onclick="bonus1.html"><a href="bonus1.html">Bonus 1</a></button>
+            <button id="homeButton" onclick="location.href='index.html'">Objectif</button>
+            <button id="bon1Button" onclick="location.href='bonus1.html'">Bonus 1</button>
         </nav>
     </header>
     
@@ -20,9 +20,11 @@
             <h1>Analyse d'un fichier de données</h1>
 
             <div>
-                <p>Veuillez sélectionner un fichier de données (format CSV) :</p>
-                <input type="file" id="inputFile" text="Rechercher">
-                <label for="inputFile">Rechercher</label>
+                <p>
+                    Veuillez sélectionner un fichier de données (format CSV) :
+                    <input type="file" id="inputFile" text="Rechercher">
+                    <label for="inputFile">Rechercher</label>
+                </p>
             </div>
 
             <div>

@@ -2,7 +2,7 @@
 
 ##Data analysis on a 'csv' file
 
-This README is completed step by step while working on th project.
+This README is completed step by step while working on the project.
 
 ###Note that :
 

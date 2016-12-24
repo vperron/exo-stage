@@ -2,6 +2,8 @@
 
 ##Data analysis on a 'csv' file
 
+This README is completed step by step while working on th project.
+
 ###Note that :
 
 * The website checks whether the given file is a CSV.
